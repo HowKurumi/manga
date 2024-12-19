@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       urls.forEach(url => {
         const urlElement = document.createElement("p");
         urlElement.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-        urlListDiv.appendChild(urlElement);
+        urlList.appendChild(urlElement);
       });
     })
     .catch(error => console.error("Error loading URLs:", error));
