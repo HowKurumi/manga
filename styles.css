@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#random-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#url-list {
+  margin-top: 20px;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
