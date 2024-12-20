@@ -11,7 +11,10 @@ body {
 
 #url-list {
   margin-top: 20px;
-  max-width: 100px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 10px;
+  max-width: 200px;
   margin-left: auto;
   margin-right: auto;
   word-wrap: break-word;
