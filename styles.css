@@ -16,8 +16,6 @@ body {
   gap: 10px;
   justify-centent: center;
   max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
