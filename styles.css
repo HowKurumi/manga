@@ -21,6 +21,6 @@ body {
 
 @media (min-width: 1000px) {
   #url-list {
-    grid-template-columns: repeat(5, minmax(200px, 1fr)); /* Max 5 columns */
+    grid-template-columns: repeat(5, 200px);
   }
 }
