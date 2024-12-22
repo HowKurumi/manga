@@ -12,9 +12,15 @@ body {
 #url-list {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   justify-content: center;
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+@media (min-width: 1000px) {
+  #url-list {
+    grid-template-columns: repeat(5, minmax(200px, 1fr)); /* Max 5 columns */
+  }
 }
