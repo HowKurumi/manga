@@ -42,11 +42,12 @@ async function fetchImage(url) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
 
-  const imgElement = doc.querySelector(".cover");
+  const imgElements = doc.querySelectorAll("img");
+  const imgElement = imgElements[1];
 
   if (imgElement) {
     return imgElement.src;
   } else {
-    throw new Error("No image found with class 'cover'");
+    throw new Error("No image found at the specified index");
   }
 }
