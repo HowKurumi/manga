@@ -9,9 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
       urls = data;
 
       urls.forEach(url => {
-        const urlElement = document.createElement("p");
-        urlElement.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-        urlList.appendChild(urlElement);
+        fetchImage(url).then(imageUrl => {
+          const urlElement = document.createElement("div");
+          const img = document.createElement("img");
+          img.src = imageUrl;
+          img.alt = "Cover";
+          img.style.width = "100%";
+          img.style.height = "auto";
+
+          urlElement.appendChild(img);
+          urlList.appendChild(urlElement);
+        }).catch(error => {
+          console.error(`Error fetching image from ${url}:`, error);
+        });
       });
     })
     .catch(error => console.error("Error loading URLs:", error));
@@ -25,3 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+async function fetchImage(url) {
+  const response = await fetch(url);
+  const html = await response.text();
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+
+  const imgElements = doc.querySelectorAll("img");
+  const imgElement = imgElements[1];
+
+  if (imgElement) {
+    return imgElement.src;
+  } else {
+    throw new Error("No image found at the specified index");
+  }
+}
