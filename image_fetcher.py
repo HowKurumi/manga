@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route('/get-image', methods=['POST'])
 def get_image():
     try:
-        # Extract URL and class name from the request
         data = request.json
         url = data.get('url')
         class_name = data.get('class_name')
@@ -15,12 +14,10 @@ def get_image():
         if not url or not class_name:
             return jsonify({"error": "Missing URL or class name"}), 400
 
-        # Fetch the webpage
         response = requests.get(url)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Find the image by class name
         img_tag = soup.find('img', class_=class_name)
         if img_tag and img_tag.get('src'):
             return jsonify({"image_url": img_tag['src']}), 200
