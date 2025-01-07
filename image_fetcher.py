@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://manga-z8hg.onrender.com"}})
 
 @app.route('/get-image', methods=['POST'])
 def get_image():
