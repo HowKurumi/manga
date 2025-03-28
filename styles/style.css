@@ -1,14 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F9F5F6;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 #random-button {
     background-color: #F2BED1;
     color: #333;
     border: none;
     padding: 10px 20px;
+    margin: 20px 0;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: auto;
+    max-width: 100%;
 }
 
 #random-button:hover {
     background-color: #FDCEDF;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    color: #666;
+    width: 100%;
+    box-sizing: border-box;
 }
